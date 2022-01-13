@@ -1,0 +1,33 @@
+export const theme = {
+  colors: {
+    white: '#FFFFFF',
+    lightGrey: '#F7F8FA',
+    grey: '#C0C7D6',
+    darkGrey: '#737C8E',
+    black: '#111111',
+    success: '#8FCB81',
+    error: '#FF8383',
+    warning: '#E1D888',
+    darkPurple: '#C0C7D6',
+    lightPurple: '#ECEFF7',
+  },
+  fontSize: {
+    xxl: '2.8rem',
+    xl: '2.2rem',
+    l: '1.5rem',
+    m: '1.2rem',
+    s: '1rem',
+    xs: '.75rem',
+    xxs: '.7rem',
+    xxxs: '.5rem',
+  },
+  spacing: {
+    xxxl: '10rem',
+    xxl: '5rem',
+    xl: '4rem',
+    l: '3rem',
+    m: '1.5rem',
+    s: '1rem',
+    xs: '0.5rem',
+  },
+};
