@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
     }
 
     html{
-        background-color: ${({ theme }) => theme.colors.backgroundPrimary};
+        background-color: ${({ theme }) => theme.colors.lightPrimaryBackground};
     }
     
     :root {

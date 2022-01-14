@@ -1,18 +1,20 @@
 import React from 'react';
-import { Header } from '../../assets/styles/Header.styles';
-import { StyledList, Wrapper } from '../../assets/styles/WorkersList.styles';
-import { workers } from '../../config/data/workers';
+import { Title } from '../../assets/styles/Header.styles';
+import { StyledList } from '../../assets/styles/WorkersList.styles';
+// import { workers } from '../../config/data/workers';
 import { WorkersListItem } from './WorkersListItem';
+// import { useWorkersState } from './useWorkersState';
+import { ComponentWrapper } from 'assets/styles/Wrappers.styles';
 
-export const WorkersList = () => {
+export const WorkersList = ({ workers }) => {
   return (
-    <>
-      <Header>Workers list</Header>
+    <ComponentWrapper>
+      <Title>Workers list</Title>
       <StyledList>
         {workers.map((worker) => (
           <WorkersListItem key={worker.firstName} worker={worker} />
         ))}
       </StyledList>
-    </>
+    </ComponentWrapper>
   );
 };

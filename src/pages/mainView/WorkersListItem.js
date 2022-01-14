@@ -3,17 +3,23 @@ import { Wrapper, Salary, Name, Department } from '../../assets/styles/WorkersLi
 
 export const WorkersListItem = ({ worker: { firstName, lastName, department, salary, currency } }) => {
   return (
-    <Wrapper>
-      <Salary>
-        {salary} {currency}{' '}
-      </Salary>
-      <Name>
-        {firstName} {lastName}
-      </Name>
+    <>
       <Department>
         {'Department: '}
         {department}
       </Department>
-    </Wrapper>
+      <Wrapper>
+        <Name>
+          {firstName} {lastName}
+        </Name>
+        <Salary>
+          {salary} {currency}{' '}
+        </Salary>
+        {/* <Department>
+        {'Department: '}
+        {department}
+      </Department> */}
+      </Wrapper>
+    </>
   );
 };
