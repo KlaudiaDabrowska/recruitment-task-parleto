@@ -8,7 +8,7 @@ export const theme = {
     primaryButtonBackground: '#eee6e6',
     secondaryButtonBackground: '#bab1ba',
     primaryText: '#2c4653',
-    secondaryText: '#bbbb',
+    secondaryText: '#727272b9',
   },
   fontSize: {
     xxl: '2.8rem',
@@ -16,7 +16,7 @@ export const theme = {
     l: '1.5rem',
     m: '1.2rem',
     s: '1rem',
-    xs: '.75rem',
+    xs: '.85rem',
     xxs: '.7rem',
     xxxs: '.5rem',
   },

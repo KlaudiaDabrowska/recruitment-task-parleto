@@ -13,12 +13,8 @@ export const WorkersListItem = ({ worker: { firstName, lastName, department, sal
           {firstName} {lastName}
         </Name>
         <Salary>
-          {salary} {currency}{' '}
+          {salary} {currency}
         </Salary>
-        {/* <Department>
-        {'Department: '}
-        {department}
-      </Department> */}
       </Wrapper>
     </>
   );

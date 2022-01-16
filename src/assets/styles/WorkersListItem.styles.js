@@ -20,20 +20,37 @@ export const Salary = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
+  @media (max-width: 620px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
+  @media (max-width: 360px) {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
 `;
 
 export const Name = styled.div`
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: bold;
+  @media (max-width: 620px) {
+    font-size: ${({ theme }) => theme.fontSize.m};
+  }
+  @media (max-width: 360px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
+  }
 `;
 
 export const Department = styled.div`
-  color: ${({ theme }) => theme.colors.secondaryText};
   font-size: ${({ theme }) => theme.fontSize.s};
-  margin-bottom: 12px;
-  margin-top: 10px;
+  margin-bottom: ${({ theme }) => theme.spacing.s};
+  margin-top: ${({ theme }) => theme.spacing.xs};
+  color: ${({ theme }) => theme.colors.secondaryText};
   text-align: right;
+  @media (max-width: 620px) {
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
+  @media (max-width: 360px) {
+    font-size: ${({ theme }) => theme.fontSize.xxs};
+  }
 `;

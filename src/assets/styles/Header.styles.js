@@ -6,6 +6,10 @@ export const Header = styled.h1`
   text-shadow: 2px 1px;
   font-weight: bold;
   text-transform: uppercase;
+
+  @media (max-width: 375px) {
+    font-size: ${({ theme }) => theme.fontSize.xl};
+  }
 `;
 
 export const Title = styled.h3`
@@ -13,5 +17,9 @@ export const Title = styled.h3`
   color: ${({ theme }) => theme.colors.primaryText};
   text-align: center;
   margin: 0;
-  margin-bottom: 50px;
+  margin-bottom: ${({ theme }) => theme.spacing.m};
+
+  @media (max-width: 360px) {
+    font-size: ${({ theme }) => theme.fontSize.l};
+  }
 `;

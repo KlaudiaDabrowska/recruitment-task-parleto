@@ -1,9 +1,9 @@
 import styled from 'styled-components';
 
-export const SubmitButton = styled.button`
-  padding: 7px;
+export const FormButton = styled.button`
   width: 100px;
   margin-top: ${({ theme }) => theme.spacing.m};
+  padding: ${({ theme }) => theme.spacing.xs};
   font-size: ${({ theme }) => theme.fontSize.s};
   font-weight: bold;
   background: linear-gradient(
@@ -23,30 +23,33 @@ export const SubmitButton = styled.button`
       ${({ theme }) => theme.colors.primaryButtonBackground} 100%
     );
   }
-`;
 
+  @media (max-width: 411px) {
+    margin-left: ${({ theme }) => theme.spacing.m};
+    font-size: ${({ theme }) => theme.fontSize.xs};
+  }
+`;
 export const ModeButton = styled.button`
-  padding: 3px;
-  width: 100px;
-  margin-top: ${({ theme }) => theme.spacing.m};
+  width: 50%;
   font-size: ${({ theme }) => theme.fontSize.m};
   font-weight: bold;
-  background: linear-gradient(
-    to bottom,
-    ${({ theme }) => theme.colors.lightPrimaryBackground} 5%,
-    ${({ theme }) => theme.colors.secondaryButtonBackground} 100%
-  );
+  background-color: transparent;
   color: ${({ theme }) => theme.colors.black};
-  border-radius: 6px;
+  border-radius: 3px;
   border: none;
-  box-shadow: 3px -1px 4px 0px #899599;
+  border-right: 1px solid #c3c3c3ca;
+  border-bottom: 1px solid #c3c3c3ca;
   cursor: pointer;
 
-  &:hover {
-    background: linear-gradient(
-      to bottom,
-      ${({ theme }) => theme.colors.secondaryButtonBackground} 5%,
-      ${({ theme }) => theme.colors.lightPrimaryBackground} 100%
-    );
+  &:focus {
+    box-shadow: 9px 3px 10px 0px #c3c3c3ca;
+  }
+
+  &:last-child {
+    border-right: none;
+  }
+
+  @media (max-width: 620px) {
+    font-size: ${({ theme }) => theme.fontSize.s};
   }
 `;

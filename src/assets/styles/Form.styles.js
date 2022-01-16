@@ -5,21 +5,22 @@ export const StyledForm = styled.form`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  width: 100%;
-  max-width: 600px;
 `;
 
 export const StyledLabel = styled.label`
-  margin: 5px;
+  margin: ${({ theme }) => theme.spacing.xs};
   font-size: ${({ theme }) => theme.fontSize.l};
   font-weight: 500;
   text-align: center;
+  @media (max-width: 620px) {
+    font-size: ${({ theme }) => theme.fontSize.m};
+  }
 `;
 
 export const StyledInput = styled.input`
   width: 85%;
-  margin-bottom: 15px;
-  padding: 8px;
+  margin-bottom: ${({ theme }) => theme.spacing.s};
+  padding: ${({ theme }) => theme.spacing.xs};
   border: 1px solid ${({ theme }) => theme.colors.primaryBackground};
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
   border-radius: 25px;
@@ -27,6 +28,10 @@ export const StyledInput = styled.input`
   &:focus {
     outline: none;
     box-shadow: 6px 7px 6px 0px ${({ theme }) => theme.colors.primaryBackground};
+  }
+
+  @media (max-width: 620px) {
+    width: 80%;
   }
 `;
 
@@ -38,9 +43,9 @@ export const StyledSalary = styled.div`
 
 export const StyledInputSalary = styled.input`
   width: 30%;
-  margin: 15px;
-  margin-top: 0px;
-  padding: 8px;
+  margin: ${({ theme }) => theme.spacing.s};
+  margin-top: 0;
+  padding: ${({ theme }) => theme.spacing.xs};
   border: 1px solid ${({ theme }) => theme.colors.primaryBackground};
   box-shadow: -2px 4px 10px rgba(115, 124, 142, 0.09);
   border-radius: 25px;
@@ -48,5 +53,12 @@ export const StyledInputSalary = styled.input`
   &:focus {
     outline: none;
     box-shadow: 6px 7px 6px 0px ${({ theme }) => theme.colors.primaryBackground};
+  }
+
+  @media (max-width: 620px) {
+    width: 26%;
+  }
+  @media (max-width: 360px) {
+    width: 30%;
   }
 `;

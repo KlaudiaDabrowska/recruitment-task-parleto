@@ -10,7 +10,7 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Wrapper>
-        <Header> Manage Workers</Header>
+        <Header> Manage Workers </Header>
         <MainView />
       </Wrapper>
     </ThemeProvider>

@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
-import { ButtonsWrapper, ComponentWrapper } from '../../assets/styles/Wrappers.styles';
 import { WorkersList } from './WorkersList';
 import { SearchWorkerForm } from './SearchWorkerForm';
 import { AddWorkersForm } from './AddWorkersForm';
 import { useWorkersState } from './useWorkersState';
+import { SalaryPerDepartment } from './SalaryPerDepartment';
+import { ModeButtonsWrapper, ViewWrapper, ComponentWrapper } from '../../assets/styles/Wrappers.styles';
 import { ModeButton } from 'assets/styles/Buttons.styles';
 
 export const MainView = () => {
-  const { setWorkers, workers } = useWorkersState();
+  const { addWorker, workers, applyFilters, salaryPerDepartment } = useWorkersState();
   const [selectedMode, setSelectedMode] = useState('');
 
   return (
     <>
-      <ButtonsWrapper>
-        <ModeButton onClick={() => setSelectedMode('search')}>Search</ModeButton>
-        <ModeButton onClick={() => setSelectedMode('add')}>Add</ModeButton>
-      </ButtonsWrapper>
-      {selectedMode === 'search' ? <SearchWorkerForm /> : <AddWorkersForm setWorkers={setWorkers} workers={workers} />}
+      <ViewWrapper>
+        <ModeButtonsWrapper>
+          <ModeButton onClick={() => setSelectedMode('search')}>Search workers</ModeButton>
+          <ModeButton onClick={() => setSelectedMode('add')}>Add new worker</ModeButton>
+        </ModeButtonsWrapper>
+        {selectedMode === 'add' ? (
+          <AddWorkersForm addWorker={addWorker} applyFilters={applyFilters} />
+        ) : (
+          <SearchWorkerForm applyFilters={applyFilters} />
+        )}
+      </ViewWrapper>
       <WorkersList workers={workers} />
       <ComponentWrapper>
-        <div>Salary: 200</div>
+        <SalaryPerDepartment salaryPerDepartment={salaryPerDepartment} />
       </ComponentWrapper>
     </>
   );

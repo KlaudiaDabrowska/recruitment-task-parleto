@@ -1,13 +1,12 @@
-import React from 'react';
-import { Title } from 'assets/styles/Header.styles';
-import { ComponentWrapper } from 'assets/styles/Wrappers.styles';
+import React, { useEffect } from 'react';
 import { useFormik } from 'formik';
-import { SubmitButton } from 'assets/styles/Buttons.styles';
+import { Title } from 'assets/styles/Header.styles';
+import { FormButton } from 'assets/styles/Buttons.styles';
 import { StyledForm, StyledLabel, StyledInput } from 'assets/styles/Form.styles';
 import { departments } from 'config/data/departments';
 import { currencies } from 'config/data/currencies';
 
-export const AddWorkersForm = ({ setWorkers, workers }) => {
+export const AddWorkersForm = ({ addWorker, applyFilters }) => {
   const formik = useFormik({
     initialValues: {
       firstName: '',
@@ -17,13 +16,17 @@ export const AddWorkersForm = ({ setWorkers, workers }) => {
       currency: '',
     },
     onSubmit: (values) => {
-      setWorkers([values, ...workers]);
+      addWorker(values);
       formik.resetForm();
     },
   });
 
+  useEffect(() => {
+    applyFilters({ person: '', department: '', minSalary: 0, maxSalary: 0 });
+  }, [applyFilters]);
+
   return (
-    <ComponentWrapper>
+    <>
       <Title> Add new worker </Title>
       <StyledForm onSubmit={formik.handleSubmit}>
         <StyledLabel htmlFor="firstName">First Name</StyledLabel>
@@ -38,30 +41,23 @@ export const AddWorkersForm = ({ setWorkers, workers }) => {
           list="department_data"
           onChange={formik.handleChange}
           value={formik.values.department}
-        />{' '}
+        />
         <datalist id="department_data">
           {departments.map((department) => (
             <option key={department} value={department} />
           ))}
         </datalist>
         <StyledLabel htmlFor="salary">Salary</StyledLabel>
-        <StyledInput id="salary" name="salary" type="number" onChange={formik.handleChange} value={formik.values.salary} />{' '}
+        <StyledInput id="salary" name="salary" type="number" onChange={formik.handleChange} value={formik.values.salary} />
         <StyledLabel htmlFor="currency">Currency</StyledLabel>
-        <StyledInput
-          id="currency"
-          name="currency"
-          type="text"
-          list="currency_data"
-          onChange={formik.handleChange}
-          value={formik.values.currency}
-        />{' '}
+        <StyledInput id="currency" name="currency" type="text" list="currency_data" onChange={formik.handleChange} value={formik.values.currency} />
         <datalist id="currency_data">
           {currencies.map((currency) => (
             <option key={currency} value={currency} />
           ))}
         </datalist>
-        <SubmitButton type="submit">Submit</SubmitButton>
+        <FormButton type="submit">Submit</FormButton>
       </StyledForm>
-    </ComponentWrapper>
+    </>
   );
 };
